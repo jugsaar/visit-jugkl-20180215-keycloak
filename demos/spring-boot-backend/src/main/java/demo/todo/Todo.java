@@ -13,17 +13,17 @@ class Todo {
 
   @Id
   @GeneratedValue
-  Long id;
+  private Long id;
 
-  String name;
+  private String name;
 
-  String description;
+  private String description;
 
-  boolean completed;
+  private boolean completed;
 
-  LocalDateTime createdAt;
+  private LocalDateTime createdAt;
 
-  LocalDateTime updatedAt;
+  private LocalDateTime updatedAt;
 
-  String ownerId;
+  private String ownerId;
 }

@@ -27,18 +27,18 @@ class UiController {
   private final KeycloakSpringBootProperties keycloakProperties;
 
   @GetMapping("/")
-  String index() {
+  public String index() {
     return "index";
   }
 
   @GetMapping("/logout")
-  String logout(HttpServletRequest request) throws Exception {
+  public String logout(HttpServletRequest request) throws Exception {
     request.logout();
     return "redirect:/todos";
   }
 
   @GetMapping("/account")
-  String account() {
+  public String account() {
 
     String todoUri = linkTo(UiController.class).toUriComponentsBuilder().path("/todos").toUriString();
 
@@ -51,7 +51,7 @@ class UiController {
   }
 
   @GetMapping("/todos*")
-  String todos(Model model) {
+  public String todos(Model model) {
 
     Resources<Resource<Todo>> todos = todoClient.fetchTodos();
     model.addAttribute("todos", todos.getContent());

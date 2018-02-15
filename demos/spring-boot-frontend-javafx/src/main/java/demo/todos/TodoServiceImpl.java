@@ -15,11 +15,14 @@
  */
 package demo.todos;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import static java.util.stream.Collectors.toList;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
+import org.springframework.hateoas.Resource;
+import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
 
 /**
  * @author Thomas Darimont
@@ -28,13 +31,14 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 class TodoServiceImpl implements TodoService {
 
-  private final TodoClient todoClient;
+	private final TodoClient todoClient;
 
-  @Override
-  public List<Todo> findMyTodos() {
+	@Override
+	public List<Todo> findMyTodos() {
 
-    List<Todo> todos = todoClient.fetchTodos().getContent().stream().map(r -> r.getContent()).collect(Collectors.toList());
+		List<Todo> todos = todoClient.fetchTodos().getContent() //
+				.stream().map(Resource::getContent).collect(toList());
 
-    return todos;
-  }
+		return todos;
+	}
 }

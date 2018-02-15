@@ -4,6 +4,7 @@ idm-system/data/
 *.project
 *.classpath
 *.settings/
+target/
 
 .idea/
 *.iml

@@ -23,7 +23,7 @@ import lombok.ToString;
  * @author Thomas Darimont
  */
 @Data
-@ToString(exclude = "tasks")
+@ToString
 @NoArgsConstructor
 public class Todo {
 

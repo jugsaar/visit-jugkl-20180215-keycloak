@@ -1,15 +1,21 @@
 package demo.config;
 
-import lombok.RequiredArgsConstructor;
 import org.keycloak.adapters.springboot.KeycloakSpringBootProperties;
+
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class KeycloakHelper {
-  private final KeycloakSpringBootProperties keycloakSpringBootProperties;
 
-  private final String clientLinkTemplate = "%s/realms/%s/clients/%s/redirect";
+	private static final String CLIENT_LINK_TEMPLATE = "%s/realms/%s/clients/%s/redirect";
 
-  public String getClientLink(String clientId) {
-    return String.format(clientLinkTemplate, keycloakSpringBootProperties.getAuthServerUrl(), keycloakSpringBootProperties.getRealm(), clientId);
-  }
+	private final KeycloakSpringBootProperties keycloakSpringBootProperties;
+
+	public String getClientLink(String clientId) {
+		return String.format(CLIENT_LINK_TEMPLATE, //
+				keycloakSpringBootProperties.getAuthServerUrl(), //
+				keycloakSpringBootProperties.getRealm(), //
+				clientId //
+		);
+	}
 }

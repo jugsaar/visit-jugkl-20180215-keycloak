@@ -17,7 +17,7 @@ services:
 
 # see https://hub.docker.com/r/graylog2/server/
   graylog:
-    image: graylog2/server:2.3.2-2
+    image: graylog2/server:2.4.3-1
     environment:
       GRAYLOG_PASSWORD_SECRET: somepasswordpepper
       GRAYLOG_ROOT_PASSWORD_SHA2: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
@@ -54,7 +54,7 @@ services:
       - ./data/activemq/data:/var/activemq/data
 
   idm-keycloak:
-    image: tdlabs/keycloak:3.3.0.CR2-3.9
+    image: tdlabs/keycloak:3.4.3.Final.1
     environment: 
       KEYCLOAK_ADMIN_USER: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
